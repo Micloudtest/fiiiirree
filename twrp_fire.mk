@@ -18,6 +18,6 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 PRODUCT_DEVICE := fire
 PRODUCT_NAME := twrp_fire
 PRODUCT_BRAND := Redmi
-PRODUCT_MODEL := fire
+PRODUCT_MODEL := Redmi 12
 PRODUCT_MANUFACTURER := xiaomi
 
