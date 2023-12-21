@@ -40,74 +40,90 @@ fi
 if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 	echo -e "\x1b[96m[INFO]: Setting up OrangeFox build vars for fire...\x1b[m"
 	if [ "$1" = "$FDEVICE" ] || [  "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
+		
+                # Language
+		if [ -z "$TW_DEFAULT_LANGUAGE" ]; then
+                   unset TW_DEFAULT_LANGUAGE
+                   export TW_DEFAULT_LANGUAGE="en"
+                fi
+
 	        # Version / Maintainer infos
-         	export TW_DEFAULT_LANGUAGE="en"
 		export OF_MAINTAINER="Tapin Recovery Instraller"
-		export FOX_VERSION=R12.1_0-2
+		export FOX_VERSION=R12.1_0-3
 		export FOX_BUILD_TYPE="Unofficial"
-          	export FOX_TARGET_DEVICES="fire"
+                export FOX_TARGET_DEVICES="fire"
 	        export TARGET_DEVICE_ALT="fire"
 	        export LC_ALL="C"
 
-	        # Magiskboot
+                # Magiskboot
 	        export OF_USE_MAGISKBOOT=1
 	        export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
   
-	        # OTA / DM-Verity / Encryption
-          	export OF_SUPPORT_ALL_PAYLOAD_OTA_UPDATES=1
+		# OTA / DM-Verity / Encryption
+                export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=0
+                export OF_SUPPORT_ALL_PAYLOAD_OTA_UPDATES=1
 		export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
 		export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
 		export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1	
-		export OF_NO_MIUI_PATCH_WARNING=1
+                export OF_NO_MIUI_PATCH_WARNING=1
 
 		export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 		export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 		export OF_KEEP_DM_VERITY_FORCED_ENCRYPTION=1
 		export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1
-		export OF_NO_RELOAD_AFTER_DECRYPTION=1
+                export OF_NO_RELOAD_AFTER_DECRYPTION=1
 
-	        # Display / Leds
-		export OF_SCREEN_H="2460"
+		# Display / Leds
+		export OF_SCREEN_H="2400"
 		export OF_STATUS_H="110"
 		export OF_STATUS_INDENT_LEFT=48
 		export OF_STATUS_INDENT_RIGHT=48
 		export OF_HIDE_NOTCH=1
 		export OF_CLOCK_POS=1 # left and right clock positions available
 		export OF_USE_GREEN_LED=0
+                export OF_FL_PATH1="/tmp/flashlight" # See /init.recovery.mt6768.rc for more information
 
-		export FOX_USE_TAR_BINARY=1
-		export FOX_USE_SED_BINARY=1
-		export FOX_USE_XZ_UTILS=1
-		export OF_FLASHLIGHT_ENABLE=0
+	        # Binaries
+                export FOX_USE_BASH_SHELL=1
+                export FOX_ASH_IS_BASH=1
+                export FOX_USE_NANO_EDITOR=1
+                export FOX_USE_GREP_BINARY=1
+                export FOX_USE_TAR_BINARY=1
+                export FOX_USE_ZIP_BINARY=1
+		export FOX_USE_BRX_BINARY=1
+                export FOX_USE_SED_BINARY=1
+                export FOX_REPLACE_TOOLBOX_GETPROP=1
+                export FOX_USE_XZ_UTILS=1
+                export FOX_REPLACE_BUSYBOX_PS=1
+                export OF_ENABLE_LPTOOLS=1
 
-	        # Security (Disables MTP & ADB during password prompt)
+		# Security (Disables MTP & ADB during password prompt)
 		export OF_ADVANCED_SECURITY=1
 
-	        #Debug
-		export FOX_INSTALLER_DEBUG_MODE=1
+                #Debug
+                export FOX_INSTALLER_DEBUG_MODE=0
 
-	        # Metadata encription
+                # Metadata encription
         	export OF_FBE_METADATA_MOUNT_IGNORE=1
 
-	        # Removes the loop block errors after flashing ZIPs (Workaround) 
-		export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1
+                # Removes the loop block errors after flashing ZIPs (Workaround) 
+                export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1
   
-	        # Other OrangeFox configs
-		export OF_ENABLE_LPTOOLS=1
+		# Other OrangeFox configs
 		export OF_ALLOW_DISABLE_NAVBAR=0
 		export FOX_DELETE_AROMAFM=1
-		export OF_USE_SYSTEM_FINGERPRINT=1
+                export OF_USE_SYSTEM_FINGERPRINT=1
                 
-	        # Backup
+                # Backup
 		export OF_USE_TWRP_SAR_DETECT=1
-		export OF_SKIP_MULTIUSER_FOLDERS_BACKUP="1"
-		export OF_QUICK_BACKUP_LIST="/boot;/data;"
+                export OF_SKIP_MULTIUSER_FOLDERS_BACKUP="1"
+                export OF_QUICK_BACKUP_LIST="/boot;/data;"
 		export FOX_REPLACE_TOOLBOX_GETPROP=1
 
-	        # run a process after formatting data to work-around MTP issues
+                # run a process after formatting data to work-around MTP issues
 	        export OF_RUN_POST_FORMAT_PROCESS="1"
 
-	        # let's see what are our build VARs
+                # let's see what are our build VARs
 	        if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
   	           export | grep "FOX" >> $FOX_BUILD_LOG_FILE
   	           export | grep "OF_" >> $FOX_BUILD_LOG_FILE
