@@ -65,3 +65,9 @@ on property:twrp.all.users.decrypted=true
 on boot
     start boot-hal-1-2
     start health-hal-2-1
+
+# Fix flashlight on orangefox
+on property:ro.orangefox.boot=1
+    mkdir /tmp/flashlight
+    write /tmp/flashlight/max_brightness "258"
+    symlink /sys/devices/platform/11e00000.i2c5/i2c-5/5-0034/mt6360_pmu_rgbled.4.auto/leds/white/brightness /tmp/flashlight/brightness
