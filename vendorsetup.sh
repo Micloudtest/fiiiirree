@@ -75,7 +75,7 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 
 		# Display / Leds
 		export OF_SCREEN_H="2400"
-		export OF_STATUS_H="110"
+		export OF_STATUS_H="109"
 		export OF_STATUS_INDENT_LEFT=48
 		export OF_STATUS_INDENT_RIGHT=48
 		export OF_HIDE_NOTCH=1
