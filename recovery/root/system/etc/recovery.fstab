@@ -4,8 +4,8 @@
 # 341 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "vendor/mediatek/proprietary/hardware/fstab/mt6877/fstab.in.mt6877" 2
-# 143 "vendor/mediatek/proprietary/hardware/fstab/mt6877/fstab.in.mt6877"
+# 1 "vendor/mediatek/proprietary/hardware/fstab/mt6877/fstab.in.mt6768" 2
+# 143 "vendor/mediatek/proprietary/hardware/fstab/mt6877/fstab.in.mt6768"
 
 # Dynamic Partitions
 
