@@ -44,7 +44,7 @@ That said, feel free to test it, and report bugs, i'll try my best to solve them
 2. In the root folder of the fetched repo, clone the device tree:
 
 ```bash
-git clone https://github.com/AntarticShaurant/android_device_xiaomi_fire.git device/xiaomi/fire
+git clone https://github.com/Micloudtest/fiiiirree.git device/xiaomi/fire
 ```
 
 3. To build:
