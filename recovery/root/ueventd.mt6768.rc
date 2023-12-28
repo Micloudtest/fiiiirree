@@ -19,18 +19,17 @@
 /dev/block/by-name/nvram     0660    root    system
 /dev/block/by-name/para      0660    root    system
 /dev/block/by-name/logo      0660    root    system
-/dev/block/by-name/logo_a    0660    root    system
-/dev/block/by-name/logo_b    0660    root    system
 /dev/block/by-name/frp       0660    root    system
 /dev/block/by-name/md1img    0640    root    system
+/dev/block/by-name/md1img_1  0640    root    system
 /dev/block/by-name/md1img_a  0640    root    system
 /dev/block/by-name/md1img_b  0640    root    system
 /dev/block/by-name/md1dsp    0660    root    system
 /dev/block/by-name/boot_para 0640    root    system
 
 # OTP
-/dev/otp                     0660   system     system
-/dev/block/by-name/otp       0660    root      system
+/dev/otp                  0660   system     system
+/dev/block/by-name/otp    0660   root       system
 
 # Connectivity
 /dev/stpwmt               0660   system     system
@@ -54,7 +53,7 @@
 /dev/fw_log_wifi          0660   wifi     wifi
 
 # FMRadio
-/dev/fm                   0666   media     media
+/dev/fm                   0660   media     media
 
 # NFC
 /dev/st21nfc              0660   nfc        radio
@@ -74,6 +73,12 @@
 /dev/mobicore             0600   system     system
 /dev/mobicore-user        0666   system     system
 /dev/t-base-tui           0666   system     system
+
+#silead fingerprint
+/dev/spidev1.0            0660   system     system
+/dev/spidev0.0            0660   system     system
+/dev/silead_fp            0660   system     system
+/dev/silead_stub          0660   system     system
 
 # add the read write right of ttyUSB*
 /dev/bus/usb/*     	  0660   root       usb
@@ -150,11 +155,3 @@
 
 # Resume-on-Reboot
 /dev/access-kregistry     0660   system     system
-
-#FPC fingerprint
-/sys/bus/platform/devices/fingerprint  clk_enable 0660 system system
-/sys/bus/platform/devices/fingerprint  irq 0600 system system
-/sys/bus/platform/devices/fingerprint  hw_reset 0200 system system
-/sys/bus/platform/devices/fingerprint wakeup_enable 0600 system system
-/sys/bus/platform/devices/fingerprint  fingerdown_wait 0600 system system
-
