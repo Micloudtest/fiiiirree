@@ -37,22 +37,3 @@ It was announced and released in June 2023.
 This device tree hasn't been tested yet, use it at your own risk.
 That said, feel free to test it, and report bugs, i'll try my best to solve them.
 
-## How to build
-
-1. Set up the build environment following the instructions [here](https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp/blob/twrp-12.1/README.md#getting-started)
-
-2. In the root folder of the fetched repo, clone the device tree:
-
-```bash
-git clone https://github.com/Micloudtest/fiiiirree.git device/xiaomi/fire
-```
-
-3. To build:
-
-```bash
-export ALLOW_MISSING_DEPENDENCIES=true
-. build/envsetup.sh
-lunch twrp-fire-eng
-mka bootimage
-```
-
