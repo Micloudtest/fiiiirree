@@ -14,11 +14,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 ENABLE_VIRTUAL_AB := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-# Boot control HAL
+# Boot Control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery \
-    android.hardware.boot@1.2-service
+    android.hardware.boot@1.0-impl.recovery \
+    android.hardware.boot@1.0-service
 
 PRODUCT_PACKAGES += \
     update_engine \
@@ -28,22 +27,17 @@ PRODUCT_PACKAGES += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=erofs \
+    FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh
 
-# fastbootd
+# Fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock \
     fastbootd
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
