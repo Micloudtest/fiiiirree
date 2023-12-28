@@ -1,4 +1,4 @@
-# TWRP Device Tree for Xiaomi Redmi 12
+# TWRP Device Tree for for Fire
 
 The Xiaomi Redmi 12 (codenamed _"fire"_) is a mid-range smartphone from Xiaomi.
 
