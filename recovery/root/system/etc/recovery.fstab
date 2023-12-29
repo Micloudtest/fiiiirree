@@ -10,7 +10,7 @@
 /dtbo            emmc     /dev/block/by-name/dtbo           flags=display="Dtbo"
 /cache           ext4     /dev/block/by-name/rescue         flags=display="Cache"
 /data            f2fs     /dev/block/by-name/userdata       flags=display="Userdata"
-/metadata        ext4     /dev/block/by-name/md_udc         flags=display="Metadata"
+/metadata        ext4     /dev/block/by-name/metadata       flags=display="Metadata"
 
 /vbmeta          emmc     /dev/block/by-name/vbmeta         flags=display="VBMeta"
 /vbmeta_system   emmc     /dev/block/by-name/vbmeta_system  flags=display="VBMeta System"
