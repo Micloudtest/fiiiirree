@@ -1,9 +1,9 @@
-/system          ext4     /dev/block/by-name/system         flags=display=System;logical;slotselect
-/vendor          ext4     /dev/block/by-name/vendor         flags=display="vendor";logical;slotselect
+/system          ext4     /dev/block/by-name/system         flags=display="System";logical;slotselect
+/vendor          ext4     /dev/block/by-name/vendor         flags=display="Vendor";logical;slotselect
 /product         ext4     /dev/block/by-name/product        flags=display="Product";logical;slotselect
 
-/system          erofs    /dev/block/by-name/system         flags=display=System;logical;slotselect
-/vendor          erofs    /dev/block/by-name/vendor         flags=display="vendor";logical;slotselect
+/system          erofs    /dev/block/by-name/system         flags=display="System";logical;slotselect
+/vendor          erofs    /dev/block/by-name/vendor         flags=display="Vendor";logical;slotselect
 /product         erofs    /dev/block/by-name/product        flags=display="Product";logical;slotselect
 
 /boot            emmc     /dev/block/by-name/boot           flags=display="Boot";backup=1;flashimg=1;slotselect
