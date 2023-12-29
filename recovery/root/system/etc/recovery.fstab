@@ -6,6 +6,11 @@
 /vendor          erofs    /dev/block/by-name/vendor         flags=display="Vendor";logical;slotselect
 /product         erofs    /dev/block/by-name/product        flags=display="Product";logical;slotselect
 
+# Main Image Partitions
+/system_image    ext4    /dev/block/by-name/mapper/system   flags=display="System (Image)";backup=1;flashimg=1;slotselect;
+/vendor_image    ext4    /dev/block/by-name/mapper/vendor   flags=display="Vendor (Image)";backup=1;flashimg=1;slotselect;
+/product_image   ext4    /dev/block/by-name/mapper/product  flags=display="Product (Image)";backup=1;flashimg=1;slotselect;
+
 /boot            emmc     /dev/block/by-name/boot           flags=display="Boot";backup=1;flashimg=1;slotselect
 /dtbo            emmc     /dev/block/by-name/dtbo           flags=display="Dtbo"
 /cache           ext4     /dev/block/by-name/rescue         flags=display="Cache"
