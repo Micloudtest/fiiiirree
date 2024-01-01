@@ -26,14 +26,14 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     seclabel u:r:recovery:s0
 
 service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
-    interface android.hardware.gatekeeper@1.0::IGatekeeper default
+    interface 
     user root
     group root
     disabled
     seclabel u:r:recovery:s0
 
 service keymaster-4-1-beanpod /system/bin/android.hardware.keymaster@4.1-service.beanpod
-    interface android.hardware.keymaster@4.1::IKeymasterDevice default
+    interface
     user root
     group root drmrpc
     oneshot    
