@@ -15,10 +15,6 @@ service teei_daemon /system/bin/teei_daemon \
     -r 14498ace2a8f11e880c8509a4c146f4c \
     -r 3d08821c33a611e6a1fa089e01c83aa2 \
     -r 40188311faf343488db888ad39496f9a \
-    -t 5020170115e016302017012521300000 \
-    -t 7778c03fc30c4dd0a319ea29643d4d4b \
-    -t 86f623f6a2994dfdb560ffd3e5a62c29 \
-    -t 8888c03fc30c4dd0a319ea29643d4d4b \
     -r 9073f03a9618383bb1856eb3f990babd \
     -r 93feffccd8ca11e796c7c7a21acb4932 \
     -r 98fb95bcb4bf42d26473eae48690d7ea \
@@ -28,6 +24,10 @@ service teei_daemon /system/bin/teei_daemon \
     -r d91f322ad5a441d5955110eda3272fc0 \
     -r e5140b3376fa4c63ab18062caab2fb5c \
     -r e97c270ea5c44c58bcd3384a2fa2539e \
+    -t 5020170115e016302017012521300000 \
+    -t 7778c03fc30c4dd0a319ea29643d4d4b \
+    -t 86f623f6a2994dfdb560ffd3e5a62c29 \
+    -t 8888c03fc30c4dd0a319ea29643d4d4b \
     -t 09010000000000000000000000000000
     user root
     group root
