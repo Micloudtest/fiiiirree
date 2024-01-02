@@ -66,14 +66,14 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
                 export FOX_RECOVERY_BOOT_PARTITION="/dev/block/by-name/boot"
 
 	        # Display / Leds
-		export OF_SCREEN_H="2460"
+		export OF_SCREEN_H="2400"
 		export OF_STATUS_H="100"
 		export OF_STATUS_INDENT_LEFT=48
 		export OF_STATUS_INDENT_RIGHT=48
 		export OF_HIDE_NOTCH=1
 		export OF_CLOCK_POS=1 # left and right clock positions available
 		export OF_USE_GREEN_LED=0
-		export OF_FLASHLIGHT_ENABLE=1
+		export OF_FLASHLIGHT_ENABLE=0
 		export OF_FL_PATH1="/tmp/flashlight" # See /init.recovery.mt6768.rc for more information
 
 	        # Metadata encription
