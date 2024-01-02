@@ -14,8 +14,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 ENABLE_VIRTUAL_AB := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-# Boot Control
+# Boot control HAL
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-impl \
     android.hardware.boot@1.2-impl.recovery \
     android.hardware.boot@1.2-service
 
@@ -34,7 +35,7 @@ PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh
 
-# Health Hal
+# Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
