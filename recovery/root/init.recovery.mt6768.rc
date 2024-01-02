@@ -26,12 +26,15 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     seclabel u:r:recovery:s0
 
 service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
+    interface android.hardware.gatekeeper@1.0::IGatekeeper default
     user root
     group root
     disabled
     seclabel u:r:recovery:s0
 
 service keymaster-4-1-beanpod /system/bin/android.hardware.keymaster@4.1-service.beanpod
+    interface android.hardware.keymaster@4.0::IKeymasterDevice default
+    interface android.hardware.keymaster@4.1::IKeymasterDevice default
     user root
     group root drmrpc
     oneshot    
@@ -58,5 +61,5 @@ on property:twrp.all.users.decrypted=true
     stop gatekeeper-1-0
    
 on boot
-    start boot-hal-1-2
     start health-hal-2-1
+    start boot-hal-1-2
