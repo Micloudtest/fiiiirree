@@ -17,6 +17,19 @@ on post-fs
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
 
+service keystore_auth /system/bin/keystore_auth 
+     oneshot 
+     user system 
+     group root 
+     disabled 
+     seclabel u:r:recovery:s0 
+  
+ service keystore /system/bin/keystore /tmp/misc/keystore 
+     user root 
+     group root drmrpc readproc log 
+     disabled 
+     seclabel u:r:recovery:s0 
+
 service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     class main
     user root
@@ -26,20 +39,18 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     seclabel u:r:recovery:s0
 
 service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
-    interface android.hardware.gatekeeper@1.0::IGatekeeper default
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
+     user root 
+     group root 
+     oneshot 
+     disabled 
+     seclabel u:r:recovery:s0 
 
 service keymaster-4-1 /system/bin/android.hardware.keymaster@4.1-service.beanpod
-    interface android.hardware.keymaster@4.0::IKeymasterDevice default
-    interface android.hardware.keymaster@4.1::IKeymasterDevice default
-    user root
-    group root drmrpc
-    oneshot    
-    disabled
-    seclabel u:r:recovery:s0
+     user root 
+     group root drmrpc 
+     oneshot     
+     disabled 
+     seclabel u:r:recovery:s0 
 
 on property:vendor.sys.listener.registered=true
     start gatekeeper-1-0
@@ -59,7 +70,3 @@ on property:twrp.all.users.decrypted=true
     stop teei_daemon
     stop keymaster-4-1
     stop gatekeeper-1-0
-   
-on boot
-    start health-hal-2-1
-    start boot-hal-1-2
