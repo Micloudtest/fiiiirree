@@ -1,5 +1,6 @@
 <!--
     Input:
+        manifest.xml
         device_framework_matrix.xml
         nfc_compatibility_matrix.xml
         vendor.xiaomi.sensor.citsensorservice@2.0_compatibility_matrix.xml
